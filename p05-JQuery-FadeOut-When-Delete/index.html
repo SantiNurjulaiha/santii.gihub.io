@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>P05 JQuery FadeOut When Delete</title>
+  </head>
+  <body>
+    <h1 class="title">The Top 5 My Best Friends</h1>
+    <table class="tabel">
+      <tr class="kategori">
+        <th class="NIM">NIM</th>
+        <th class="NAMA">Nama</th>
+        <th class="ALAMAT">Alamat</th>
+        <th class="AKSI">Action</th>
+      </tr>
+           <tr class="baris" id="baris__1">
+        <td>41215509</td>
+        <td class="cell" id="nama_mhs__1">Annisa Saninah</td>
+        <td class="cell" id="alamat__1">GARUT</td>
+        <td class="cell" id="hapus__1">Delete</td>
+      </tr>
+
+      <tr class="baris" id="baris__2">
+       <td>41215381</td>
+        <td class="cell" id="nama_mhs__2">Feni Mahmudah</td>
+        <td class="cell" id="alamat__2">MAJALENGKA</td>
+        <td class="cell" id="hapus__2">Delete</td>
+      </tr>
+
+      <tr class="baris" id="baris__3">
+        <td>41215686</td>
+        <td class="cell" id="nama_mhs__3">Nuzlatul Hidayati</td>
+        <td class="cell" id="alamat__3">CIREBON</td>
+        <td class="cell" id="hapus__3">Delete</td>
+      </tr>
+
+      <tr class="baris" id="baris__4">
+        <td>41215402</td>
+        <td class="cell" id="nama_mhs__4">Aminatun Jihan</td>
+        <td class="cell" id="alamat__4">FLORES</td>
+        <td class="cell" id="hapus__4">Delete</td>
+      </tr>
+
+      <tr class="baris" id="baris__5">
+       <td>41215357</td>
+        <td class="cell" id="nama_mhs__5">Anggita Aprilla</td>
+        <td class="cell" id="alamat__5">TEGAL</td>
+        <td class="cell" id="hapus__5">Delete</td>
+      </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script type="text/javascript">
+   $(document).ready(function(){
+    $('.cell').click(function(){
+        let isi = $(this).text();
+        let tid = $(this).prop('id');
+        let rid = tid.split('__');
+        let id_baris = rid[1];
+        let nama_mhs = $('#nama_mhs__'+id_baris).text();
+
+        if(isi=='Delete'){
+            let yakin = confirm(`Anda yakin ingin menghapus data atas nama ${nama_mhs} ??`);
+            if(!yakin) return;
+
+            $('#baris__'+id_baris).fadeOut();
+        }else{
+            alert('Aksi Lain untuk Cell ini belum ada. Terimakasih sudah mencoba.');
+        }
+    })
+})
+ </script>
+  </body>
+</html>
